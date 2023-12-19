@@ -15,6 +15,8 @@ public class BoardVO {
 	private long reg_no;
 	private int bank_id;
 	private String bank_account;
+	private Banks banks;
+	private Departments departments;
 	
 	public int getEmployee_id() {
 		return employee_id;
@@ -81,6 +83,18 @@ public class BoardVO {
 	}
 	public void setBank_account(String bank_account) {
 		this.bank_account = bank_account;
+	}
+	public Banks getBanks() {
+		return banks;
+	}
+	public void setBanks(Banks banks) {
+		this.banks = banks;
+	}
+	public Departments getDepartments() {
+		return departments;
+	}
+	public void setDepartments(Departments departments) {
+		this.departments = departments;
 	}
 	
 	
