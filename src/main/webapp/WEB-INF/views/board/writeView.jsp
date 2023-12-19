@@ -33,58 +33,64 @@
 				<div class="container-fluid">	<!-- 등록 폼 그리드-->
 				  <div class="row">
 				    <div class="col-8">
-					    <form>
+					    <form role="form" method="post" action="/board/write">
 							<div class="form-row">
 								<div class="form-group col-md-6">
-							      <label for="inputName">성명</label>
-							      <input type="text" class="form-control" id="inputName" placeholder="성명">
+							      <label for="name">성명</label>
+							      <input type="text" class="form-control" id="name" placeholder="성명">
 							    </div>
 							    <div class="form-group col-md-6">
-							      <label for="inputRegNo">주민번호</label>
-							      <input type="text" class="form-control" id="inputRegNo" placeholder="주민번호">
+							      <label for="reg_no">주민번호</label>
+							      <input type="text" class="form-control" id="reg_no" placeholder="주민번호">
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputAddress">주소</label>
-							    <input type="text" class="form-control" id="inputAddress" placeholder="주소">
+							    <label for="address">주소</label>
+							    <textarea class="form-control" id="address" rows="3" placeholder="주소"></textarea>
 							  </div>
 							  <div class="form-row">
 							  	<div class="form-group col-md-4">
-							      <label for="inputHireDate">입사일</label>
-							      <input type="text" class="form-control" id="inputHireDate" placeholder="입사일">
+							      <label for="hire_date">입사일</label>
+							      <input type="text" class="form-control" id="hire_date" placeholder="입사일">
 							    </div>
 							    <div class="form-group col-md-4">
-							      <label for="inputDepartmentName">부서명</label>
-							      <select id="inputDepartmentName" class="form-control">
-							        <option selected>Choose...</option>
-							        <option>...</option>
+							      <label for="department_id">부서명</label>
+							      <select id="inputDepartmentName" class="form-control" id="department_id">
+							        <option value="10">관리부</option>
+			        				<option value="20">영업부</option>
+			        				<option value="30">구매부</option>
+			        				<option value="40">인사부</option>
+			        				<option value="50">배송부</option>
+			        				<option value="60">IT사업부</option>
 							      </select>
 							    </div>
 							    <div class="form-group col-md-4">
-							      <label for="inputLeaveDate">퇴사일</label>
-							      <input type="text" class="form-control" id="inputLeaveDate" placeholder="퇴사일">
+							      <label for="leave_date">퇴사일</label>
+							      <input type="text" class="form-control" id="leave_date" placeholder="퇴사일">
 							    </div>
 							  </div>
 							  <div class="form-row">
 							    <div class="form-group col-md-4">
-							      <label for="inputBankName">급여은행</label>
-							      <select id="inputBankName" class="form-control">
-							        <option selected>Choose...</option>
-							        <option>...</option>
+							      <label for="bank_id">급여은행</label>
+							      <select id="inputBankName" class="form-control" id="bank_id">
+							        <option value="10">국민은행</option>
+			        				<option value="11">기업은행</option>
+			        				<option value="12">우리은행</option>
+			        				<option value="13">농협은행</option>
 							      </select>
 							    </div>
 							    <div class="form-group col-md-8">
-							      <label for="inputBankAccount">급여계좌</label>
-							      <input type="text" class="form-control" id="inputBankAccount" placeholder="급여계좌">
+							      <label for="bank_account">급여계좌</label>
+							      <input type="text" class="form-control" id="bank_account" placeholder="급여계좌">
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label for="inputPhoneNumber">전화번호</label>
-							    <input type="text" class="form-control" id="inputPhoneNumber" placeholder="전화번호">
+							    <label for="phone_number">전화번호</label>
+							    <input type="text" class="form-control" id="phone_number" placeholder="전화번호">
 							  </div>
 							  <div class="form-group">
-							  	<label for="inputEmail">Email</label>
-							  	<input type="text" class="form-control" id="inputEmail" placeholder="Email">
+							  	<label for="email">Email</label>
+							  	<input type="text" class="form-control" id="email" placeholder="Email">
 							  </div>		  
 							<button type="submit" class="btn btn-primary">저장</button>
 						</form>
