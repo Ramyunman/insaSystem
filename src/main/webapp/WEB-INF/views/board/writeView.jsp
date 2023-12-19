@@ -7,68 +7,90 @@
 		<title>글 작성</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 	</head>
+<!-- 	<style>
+		.testCss1 {
+			border: black;
+			background-color: gold;
+		}
+		.testCss2 {
+			border: black;
+			background-color: red;
+		}
+		.testCss3 {
+			border: black;
+			background-color: blue;
+		}
+	</style> -->
 	<body>
-		<div class="container text-left">
+		<div class="container-fluid">
 		  <div class="row">
-		    <div class="col-1">
+		    <div class="col testCss1">
 		      왼쪽
 		    </div>
-		    <div class="col-10">
+		    <div class="col-9 testCss2">
 		    	인사관리시스템
 		    	<nav>
 		    	사원목록
 				</nav>
+				
 				<form>
 				  <div class="form-row">
 				    <div class="form-group col-md-6">
-				      <label for="inputEmail4">Email</label>
-				      <input type="email" class="form-control" id="inputEmail4">
+				      <label for="inputName">성명</label>
+				      <input type="text" class="form-control" id="inputName" placeholder="성명">
 				    </div>
 				    <div class="form-group col-md-6">
-				      <label for="inputPassword4">Password</label>
-				      <input type="password" class="form-control" id="inputPassword4">
+				      <label for="inputRegNo">주민번호</label>
+				      <input type="text" class="form-control" id="inputRegNo" placeholder="주민번호">
 				    </div>
 				  </div>
 				  <div class="form-group">
-				    <label for="inputAddress">Address</label>
-				    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-				  </div>
-				  <div class="form-group">
-				    <label for="inputAddress2">Address 2</label>
-				    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+				    <label for="inputAddress">주소</label>
+				    <input type="text" class="form-control" id="inputAddress" placeholder="주소">
 				  </div>
 				  <div class="form-row">
-				  	<div class="form-group col-md-6">
-				      <label for="inputCity">City</label>
-				      <input type="text" class="form-control" id="inputCity">
+				  	<div class="form-group col-md-4">
+				      <label for="inputHireDate">입사일</label>
+				      <input type="text" class="form-control" id="inputHireDate" placeholder="입사일">
 				    </div>
 				    <div class="form-group col-md-4">
-				      <label for="inputState">State</label>
+				      <label for="inputDepartmentName">부서명</label>
 				      <select id="inputState" class="form-control">
 				        <option selected>Choose...</option>
 				        <option>...</option>
 				      </select>
 				    </div>
-				    <div class="form-group col-md-2">
-				      <label for="inputZip">Zip</label>
-				      <input type="text" class="form-control" id="inputZip">
+				    <div class="form-group col-md-4">
+				      <label for="inputLeaveDate">퇴사일</label>
+				      <input type="text" class="form-control" id="inputLeaveDate" placeholder="퇴사일">
+				    </div>
+				  </div>
+				  <div class="form-row">
+				    <div class="form-group col-md-4">
+				      <label for="inputBankName">급여은행</label>
+				      <select id="inputBankName" class="form-control">
+				        <option selected>Choose...</option>
+				        <option>...</option>
+				      </select>
+				    </div>
+				    <div class="form-group col-md-8">
+				      <label for="inputBankAccount">급여계좌</label>
+				      <input type="text" class="form-control" id="inputBankAccount" placeholder="급여계좌">
 				    </div>
 				  </div>
 				  <div class="form-group">
-				    <div class="form-check">
-				      <input class="form-check-input" type="checkbox" id="gridCheck">
-				      <label class="form-check-label" for="gridCheck">
-				        Check me out
-				      </label>
-				    </div>
+				    <label for="inputPhoneNumber">전화번호</label>
+				    <input type="text" class="form-control" id="inputPhoneNumber" placeholder="전화번호">
 				  </div>
-				  <button type="submit" class="btn btn-primary">Sign in</button>
+				  <div class="form-group">
+				  	<label for="inputEmail">Email</label>
+				  	<input type="text" class="form-control" id="inputEmail" placeholder="Email">
+				  </div>
+				  				  
+				  <button type="submit" class="btn btn-primary">저장</button>
 				</form>
-			
-		    	
-		    	
 		    </div>
-		    <div class="col-1">
+		    <div class="col testCss3">
 		      오른쪽
 		    </div>
 		  </div>
