@@ -51,7 +51,7 @@
 							  <div class="form-row">
 							  	<div class="form-group col-md-4">
 							      <label for="hire_date">입사일</label>
-							      <input type="text" class="form-control" id="hire_date" name="hire_date placeholder="입사일">
+							      <input type="text" class="form-control" id="hire_date" name="hire_date" placeholder="입사일">
 							    </div>
 							    <div class="form-group col-md-4">
 							      <label for="department_id">부서명</label>
