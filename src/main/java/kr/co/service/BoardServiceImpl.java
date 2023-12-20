@@ -19,13 +19,30 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void write(BoardVO boardVO) throws Exception {
 		dao.write(boardVO);
-		
 	}
 
 	// 직원 목록 조회
 	@Override
 	public List<BoardVO> list() throws Exception {
 		return dao.list();
+	}
+
+	// 직원 정보 조회
+	@Override
+	public BoardVO read(int employee_id) throws Exception {
+		return dao.read(employee_id);
+	}
+
+	// 직원 정보 수정
+	@Override
+	public void update(BoardVO boardVO) throws Exception {
+		dao.update(boardVO);
+	}
+
+	// 직원 정보 삭제
+	@Override
+	public void delete(int employee_id) throws Exception {
+		dao.delete(employee_id);
 	}
 
 }

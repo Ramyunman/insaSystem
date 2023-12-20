@@ -61,4 +61,33 @@
 		ORDER BY employee_id DESC
 	</select>
 	
+	<!-- 직원 정보 조회 -->
+	<select id="read" parameterType="int" resultType="kr.co.vo.BoardVO" resultMap="boardVoResultMap">
+		SELECT *
+		FROM  employees
+		WHERE employee_id = #{employee_id}
+	</select>
+	
+	<!-- 직원 정보 수정 -->
+	<update id="update" parameterType="kr.co.vo.BoardVO">
+		UPDATE	employees
+		   SET	name = #{name},
+		   		email = #{email},
+		   		phone_number = #{phone_number},
+		   		hire_date = #{hire_date},
+		   		leave_date = #{leave_date},
+		   		department_id = #{department_id},
+		   		address = #{address},
+		   		reg_no = #{reg_no},
+		   		bank_id = #{bank_id},
+		   		bank_account = #{bank_account}  
+		WHERE 	employee_id = #{employee_id};
+	</update>
+	
+	<!-- 직원 정보 삭제 -->
+	<delete id="delete" parameterType="int">
+		DELETE
+		FROM	employees
+		WHERE	employee_id = #{employee_id}
+	</delete>
 </mapper>

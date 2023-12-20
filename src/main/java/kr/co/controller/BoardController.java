@@ -43,5 +43,37 @@ public class BoardController {
 		model.addAttribute("list", service.list());
 		return "board/list";
 	}
+	
+	// 직원 정보 조회
+	@RequestMapping(value = "/readView", method = RequestMethod.GET)
+	public String read(BoardVO boardVO, Model model) throws Exception {
+		logger.info("read");
+		model.addAttribute("read", service.read(boardVO.getEmployee_id()));
+		return "board/readView";
+	}
+	
+	// 직원 정보 수정 화면
+	@RequestMapping(value = "/updateView", method = RequestMethod.GET)
+	public String updateView(BoardVO boardVO, Model model) throws Exception {
+		logger.info("updateView");
+		model.addAttribute("update", service.read(boardVO.getEmployee_id()));
+		return "board/updateView";
+	}
+	
+	// 직원 정보 수정
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(BoardVO boardVO) throws Exception {
+		logger.info("update");
+		service.update(boardVO);
+		return "redirect:/board/list";
+	}
+	
+	// 게시판 삭제
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String delete(BoardVO boardVO) throws Exception {
+		logger.info("delete");
+		service.delete(boardVO.getEmployee_id());
+		return "redirect:/board/list";
+	}
 
 }

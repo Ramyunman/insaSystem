@@ -11,5 +11,14 @@ public interface BoardService {
 	
 	// 직원 목록 조회
 	public List<BoardVO> list() throws Exception;
+	
+	// 직원 정보 조회
+	public BoardVO read(int employee_id) throws Exception;
+	
+	// 직원 정보 수정
+	public void update(BoardVO boardVO) throws Exception;
+	
+	// 직원 정보 삭제
+	public void delete(int employee_id) throws Exception;
 
 }
