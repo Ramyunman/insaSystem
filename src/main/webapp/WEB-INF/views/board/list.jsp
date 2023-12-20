@@ -37,7 +37,9 @@
 				  	<c:forEach items="${list}" var="emp">
 				    <tr>
 				      <td></td>
-				      <td><c:out value="${emp.employee_id }"/></td>
+				      <td>
+				      	<a href="/board/readView?employee_id=${emp.employee_id }"><c:out value="${emp.employee_id }"/></a>
+				      </td>
 				      <td><c:out value="${emp.name }"/></td>
 				      <td><c:out value="${emp.reg_no }"/></td>
 				      <td><c:out value="${emp.departments.department_name }"/></td>

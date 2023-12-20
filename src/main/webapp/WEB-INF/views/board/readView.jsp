@@ -10,6 +10,32 @@
 		<title>직원 정보 보기</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 	</head>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var formObj = $("form[name='readForm']");
+			
+			// 수정
+			$(".update_btn").on("click", function() {
+				formObj.attr("action", "/board/updateView");
+				formObj.attr("method", "get");
+				formObj.submit();
+			})
+			
+			// 삭제
+			$(".delete_btn").on("click", function() {
+				formObj.attr("action", "/board/delete");
+				formObj.attr("method", "post");
+				formObj.submit();
+			})
+			
+			// 취소
+			$(".list_btn").on("click", function() {
+				location.href = "/board/list";
+			})
+		})
+	</script>
+	
 	<body>
 		<div class="container-fluid">
 		  <div class="row">
@@ -22,30 +48,31 @@
 				<div class="container-fluid">	<!-- 등록 폼 그리드-->
 				  <div class="row">
 				    <div class="col-8">
-					    <form role="form" method="get">
-					    <input type="hidden" name="employee_id" value="${read.employee_id }" />
+					    <form role="form" name="readForm" method="post">
+					    	<input type="hidden" id="employee_id" name="employee_id" value="${read.employee_id }" />
+						</form>
 							<div class="form-row">
 								<div class="form-group col-md-6">
 							      <label for="name">성명</label>
-							      <input type="text" class="form-control" id="name" name="name" value="${read.name }">
+							      <input type="text" class="form-control" id="name" name="name" value="${read.name }" readonly="readonly">
 							    </div>
 							    <div class="form-group col-md-6">
 							      <label for="reg_no">주민번호</label>
-							      <input type="text" class="form-control" id="reg_no" name="reg_no" value="${read.reg_no }">
+							      <input type="text" class="form-control" id="reg_no" name="reg_no" value="${read.reg_no }" readonly="readonly">
 							    </div>
 							</div>
 							<div class="form-group">
 								<label for="address">주소</label>
-							    <textarea class="form-control" id="address" name="address" rows="3" value="${read.address }"></textarea>
+							    <textarea class="form-control" id="address" name="address" rows="3" value="${read.address }" readonly="readonly"></textarea>
 							</div>
 							<div class="form-row">
 							  	<div class="form-group col-md-4">
 							      <label for="hire_date">입사일</label>
-							      <input type="date" class="form-control" id="hire_date" name="hire_date" value="${read.hire_date }">
+							      <input type="date" class="form-control" id="hire_date" name="hire_date" value="${read.hire_date }" readonly="readonly">
 							    </div>
 							    <div class="form-group col-md-4">
 							      <label for="department_id">부서명</label>
-							      <select id="inputDepartmentName" class="form-control" id="department_id" name="department_id" value="${read.department_id }">
+							      <select id="inputDepartmentName" class="form-control" id="department_id" name="department_id" value="${read.department_id }" readonly="readonly">
 							        <option value="10">관리부</option>
 			        				<option value="20">영업부</option>
 			        				<option value="30">구매부</option>
@@ -56,13 +83,13 @@
 							    </div>
 							    <div class="form-group col-md-4">
 							      <label for="leave_date">퇴사일</label>
-							      <input type="date" class="form-control" id="leave_date" name="leave_date" value="${read.leave_date }">
+							      <input type="date" class="form-control" id="leave_date" name="leave_date" value="${read.leave_date }" readonly="readonly">
 							    </div>
 							</div>
 							<div class="form-row">
 							    <div class="form-group col-md-4">
 							      <label for="bank_id">급여은행</label>
-							      <select id="inputBankName" class="form-control" id="bank_id" name="bank_id" value="${read.bank_id }">
+							      <select id="inputBankName" class="form-control" id="bank_id" name="bank_id" value="${read.bank_id }" readonly="readonly">
 							        <option value="10">국민은행</option>
 			        				<option value="11">기업은행</option>
 			        				<option value="12">우리은행</option>
@@ -71,20 +98,19 @@
 							    </div>
 							    <div class="form-group col-md-8">
 							      <label for="bank_account">급여계좌</label>
-							      <input type="text" class="form-control" id="bank_account" name="bank_account" value="${read.bank_account }">
+							      <input type="text" class="form-control" id="bank_account" name="bank_account" value="${read.bank_account }" readonly="readonly">
 							    </div>
 							</div>
 							<div class="form-group">
 							    <label for="phone_number">전화번호</label>
-							    <input type="text" class="form-control" id="phone_number" name="phone_number" value="${read.phone_number }">
+							    <input type="text" class="form-control" id="phone_number" name="phone_number" value="${read.phone_number }" readonly="readonly">
 							</div>
 							<div class="form-group">
 								<label for="email">Email</label>
-							  	<input type="text" class="form-control" id="email" name="email" value="${read.email }">
+							  	<input type="text" class="form-control" id="email" name="email" value="${read.email }" readonly="readonly">
 							</div>		  
-							<button type="submit" class="btn btn-primary">수정</button>
-							<button type="submit" class="btn btn-secondary">취소</button>
-						</form>
+							<button type="submit" class="btn btn-primary update_btn">수정</button>
+							<button type="submit" class="btn btn-secondary list_btn">취소</button>
 				    </div>
 				    <div class="col-4"></div>
 				  </div>
