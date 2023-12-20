@@ -32,4 +32,33 @@
 				#{bank_account}
 			)
 	</insert>
+	
+	<resultMap id="boardVoResultMap" type="kr.co.vo.BoardVO">
+		<id property="employee_id" column="employee_id"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="phone_number" column="phone_number"/>
+		<result property="hire_date" column="hire_date"/>
+		<result property="leave_date" column="leave_date"/>
+		<result property="department_id" column="department_id"/>
+		<result property="address" column="address"/>
+		<result property="reg_no" column="reg_no"/>
+		<result property="bank_id" column="bank_id"/>
+		<result property="bank_account" column="bank_account"/>	
+		<association property="departments" resultMap="deptResultMap"/>
+	</resultMap>
+	
+	<resultMap id="deptResultMap" type="kr.co.vo.Departments">
+		<id property="department_id" column="department_id"/>
+		<result property="department_name" column="department_name"/>
+	</resultMap>
+	
+	<!-- 게시판 목록 -->
+	<select id="list" resultType="kr.co.vo.BoardVO" resultMap="boardVoResultMap">
+		SELECT e.*, d.department_name 
+		FROM employees e
+		LEFT JOIN departments d on e.department_id = d.department_id
+		ORDER BY employee_id DESC
+	</select>
+	
 </mapper>

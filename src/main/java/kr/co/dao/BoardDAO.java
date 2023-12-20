@@ -1,10 +1,15 @@
 package kr.co.dao;
 
+import java.util.List;
+
 import kr.co.vo.BoardVO;
 
 public interface BoardDAO {
 	
-	// 게시글 작성
+	// 직원 등록 작성
 	public void write(BoardVO boardVO) throws Exception;
+	
+	// 직원 목록 조회
+	public List<BoardVO> list() throws Exception;
 
 }
