@@ -79,7 +79,6 @@
 				type : "post",
 				data : { chbox : checkArr },
 				success : function(data) {
-				location.href = "/board/list";
 				}
 			})
 		})
