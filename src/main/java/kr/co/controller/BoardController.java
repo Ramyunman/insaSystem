@@ -74,7 +74,7 @@ public class BoardController {
 	
 	// 게시판 삭제
 	@ResponseBody
-	@RequestMapping(value = "/board/delete", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String delete(@RequestParam(value = "chbox[]") List<String> employeeIds) throws Exception {
 	    logger.info("delete");
 	    for (String employeeId : employeeIds) {
