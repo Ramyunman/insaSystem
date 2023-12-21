@@ -88,7 +88,7 @@
 	<delete id="delete">
 		DELETE	employees
 		WHERE	employee_id IN
-		<foreach collection="" item="" separator="," open="(" close=")">
+		<foreach collection="list" item="employee_id" separator="," open="(" close=")">
 		 	#{employee_id}
 		 </foreach> 
 	</delete>

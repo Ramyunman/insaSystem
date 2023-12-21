@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.service.BoardService;
 import kr.co.vo.BoardVO;
@@ -69,6 +70,7 @@ public class BoardController {
 	}
 	
 	// 게시판 삭제
+	@ResponseBody
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String delete(BoardVO boardVO) throws Exception {
 		logger.info("delete");

@@ -45,7 +45,7 @@
 				  <tbody>
 				  	<c:forEach items="${list}" var="emp">
 				    <tr>
-				      <td><input type="checkbox" id="empCheckbox "name="empCheckbox" value="${emp.employee_id }"></td>
+				      <td><input type="checkbox" id="chBox "name="chBox" data-empId="${emp.employee_id}"></td>
 				      <td><a href="/board/readView?employee_id=${emp.employee_id }"><c:out value="${emp.employee_id }"/></a></td>
 				      <td><c:out value="${emp.name }"/></td>
 				      <td><c:out value="${emp.reg_no }"/></td>
@@ -59,13 +59,34 @@
 				  </tbody>
 				</table>
 				<button type="submit" class="btn btn-primary create_btn">추가</button>
-				<button type="submit" class="btn btn-secondary delete_btn" onclick="empIdsArr()">삭제</button>
+				<button type="button" class="btn btn-secondary delete_btn">삭제</button>
 		    </div>	<!-- 전체 화면 그리드 중앙 -->
 		    <div class="col testCss3"></div>
 		  </div>
 		</div>
-	<script type="text/javascript">
-		var empIds= [];
+	<script>
+		$(".delete_btn").click(function() {
+			var confirm_val = confirm("정말 삭제하시겠습니까?");
+			
+			if(confirm_val) {
+				var checkArr = new Array();
+				
+				$("input[class='chBox']:checked").each(function() {
+					checkArr.push($(this).attr("data-empId"));
+				});
+				
+				$.ajax({
+					url : "/board/delete",
+					type : "post",
+					data : { chbox : checkArr },
+					success : function() {
+						location.href = "/board/list";
+					}
+				});
+			}
+			console.log(checkArr);
+		});
+		/* var empIds= [];
 		
 		function empIdsArr() {
 			$('input:checkbox[name=empCheckbox]').each(function() {
@@ -75,6 +96,13 @@
 			})
 		}
 		console.log(empIds);
+		
+		$(document).ready(function() {			
+			// 삭제버튼
+			$(".delete_btn").on("click", function() {
+				action = '/board/delete';
+			})
+		}) */
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
