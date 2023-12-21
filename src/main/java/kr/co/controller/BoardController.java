@@ -22,7 +22,7 @@ public class BoardController {
 	@Inject
 	BoardService service;
 	
-	// 직원 등록 작성 화면
+	// 직원 등록 작성뷰
 	@RequestMapping(value = "/writeView", method = RequestMethod.GET)
 	public void writeView() throws Exception {
 		logger.info("writeView");
@@ -52,7 +52,7 @@ public class BoardController {
 		return "board/readView";
 	}
 	
-	// 직원 정보 수정 화면
+	// 직원 정보 수정뷰
 	@RequestMapping(value = "/updateView", method = RequestMethod.GET)
 	public String updateView(BoardVO boardVO, Model model) throws Exception {
 		logger.info("updateView");

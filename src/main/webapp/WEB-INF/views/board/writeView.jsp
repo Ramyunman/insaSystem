@@ -3,19 +3,30 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<meta charset="UTF-8">
-		<title>직원 등록 작성</title>
+		<title>직원 정보 작성뷰</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 	</head>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+			$(".cancel_btn").on("click", function() {
+				event.preventDefault();
+				location.href = "/board/list";
+			})
+		})
+	</script>
 	<body>
 		<div class="container-fluid">
 		  <div class="row">
 		    <div class="col testCss1"></div>				
 		    <div class="col-9 testCss2">	<!-- 전체 화면 그리드 중앙 -->
-		    	Insa관리시스템
-		    	<nav>
-		    	사원목록
-				</nav>
+		    			    	
+		    	<div>
+		    		<%@include file="nav.jsp" %>
+		    	</div>
+		    	
 				<div class="container-fluid">	<!-- 등록 폼 그리드-->
 				  <div class="row">
 				    <div class="col-8">
@@ -78,7 +89,8 @@
 								<label for="email">Email</label>
 							  	<input type="text" class="form-control" id="email" name="email" placeholder="Email">
 							</div>		  
-							<button type="submit" class="btn btn-primary">저장</button>
+								<button type="submit" class="btn btn-primary">저장</button>
+								<button type="submit" class="btn btn-secondary cancel_btn">취소</button>
 						</form>
 				    </div>
 				    <div class="col-4"></div>

@@ -81,13 +81,15 @@
 		   		reg_no = #{reg_no},
 		   		bank_id = #{bank_id},
 		   		bank_account = #{bank_account}  
-		WHERE 	employee_id = #{employee_id};
+		WHERE 	employee_id = #{employee_id}
 	</update>
 	
-	<!-- 직원 정보 삭제 -->
-	<delete id="delete" parameterType="int">
-		DELETE
-		FROM	employees
-		WHERE	employee_id = #{employee_id}
+	<!-- 직원 정보 선택삭제 -->
+	<delete id="delete">
+		DELETE	employees
+		WHERE	employee_id IN
+		<foreach collection="" item="" separator="," open="(" close=")">
+		 	#{employee_id}
+		 </foreach> 
 	</delete>
 </mapper>
