@@ -1,5 +1,7 @@
 package kr.co.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.service.BoardService;
@@ -71,11 +74,14 @@ public class BoardController {
 	
 	// 게시판 삭제
 	@ResponseBody
-	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String delete(BoardVO boardVO) throws Exception {
-		logger.info("delete");
-		service.delete(boardVO.getEmployee_id());
-		return "redirect:/board/list";
+	@RequestMapping(value = "/board/delete", method = RequestMethod.POST)
+	public String delete(@RequestParam(value = "chbox[]") List<String> employeeIds) throws Exception {
+	    logger.info("delete");
+	    for (String employeeId : employeeIds) {
+	        service.delete(Integer.parseInt(employeeId));
+	    }
+	    return "redirect:/board/list";
 	}
+
 
 }
