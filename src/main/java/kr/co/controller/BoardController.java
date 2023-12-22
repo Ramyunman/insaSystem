@@ -1,5 +1,6 @@
 package kr.co.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -8,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -73,14 +75,17 @@ public class BoardController {
 	}
 	
 	// 게시판 삭제
-	@ResponseBody
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String delete(@RequestParam(value = "chbox[]") List<String> employeeIds) throws Exception {
-	    logger.info("delete");
-	    for (String employeeId : employeeIds) {
-	        service.delete(Integer.parseInt(employeeId));
+	@ResponseBody
+	public String delete(@RequestParam(value = "empIdList[]") List<String> empIdList, BoardVO boardVO) throws Exception {
+		logger.info("delete");
+	    for (String employeeId : empIdList) {
+	    	System.out.println(employeeId);
+	    //	service.delete(Integer.parseInt(employeeIds));
 	    }
-	    return "redirect:/board/list";
+	    boardVO.setEmployeeIdArray(empIdList);
+	    System.out.println(empIdList);
+	    return "board/list"; 
 	}
 
 

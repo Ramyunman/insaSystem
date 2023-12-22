@@ -85,10 +85,10 @@
 	</update>
 	
 	<!-- 직원 정보 선택삭제 -->
-	<delete id="delete">
+	<delete id="delete" parameterType="kr.co.vo.BoardVO">
 		DELETE	employees
 		WHERE	employee_id IN
-		<foreach collection="list" item="employee_id" separator="," open="(" close=")">
+		<foreach collection="employeeIdArray" item="emp" separator="," open="(" close=")">
 		 	#{employee_id}
 		 </foreach> 
 	</delete>

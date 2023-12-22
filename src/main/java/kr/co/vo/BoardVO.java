@@ -1,6 +1,7 @@
 package kr.co.vo;
 
 import java.sql.Date;
+import java.util.List;
 
 public class BoardVO {
 
@@ -17,6 +18,7 @@ public class BoardVO {
 	private String bank_account;
 	private Banks banks;
 	private Departments departments;
+	private List<String> employeeIdArray;
 	
 	public int getEmployee_id() {
 		return employee_id;
@@ -95,6 +97,12 @@ public class BoardVO {
 	}
 	public void setDepartments(Departments departments) {
 		this.departments = departments;
+	}
+	public List<String> getEmployeeIdArray() {
+		return employeeIdArray;
+	}
+	public void setEmployeeIdArray(List<String> employeeIdArray) {
+		this.employeeIdArray = employeeIdArray;
 	}
 	
 	
