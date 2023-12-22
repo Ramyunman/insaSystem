@@ -19,6 +19,6 @@ public interface BoardService {
 	public void update(BoardVO boardVO) throws Exception;
 	
 	// 직원 정보 삭제
-	public void delete(int employee_id) throws Exception;
+	public void delete(List<String> employeeIds) throws Exception;
 
 }

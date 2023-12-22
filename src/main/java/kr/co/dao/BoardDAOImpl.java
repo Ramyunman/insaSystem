@@ -41,8 +41,8 @@ public class BoardDAOImpl implements BoardDAO {
 
 	// 직원 정보 삭제
 	@Override
-	public void delete(int employee_id) throws Exception {
-		sqlSession.delete("boardMapper.delete", employee_id);
+	public void delete(List<String> employeeIds) throws Exception {
+		sqlSession.delete("boardMapper.delete", employeeIds);
 	}
 	
 

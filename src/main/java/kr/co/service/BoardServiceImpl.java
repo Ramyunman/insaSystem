@@ -41,8 +41,8 @@ public class BoardServiceImpl implements BoardService {
 
 	// 직원 정보 삭제
 	@Override
-	public void delete(int employee_id) throws Exception {
-		dao.delete(employee_id);
+	public void delete(List<String> employeeIds) throws Exception {
+		dao.delete(employeeIds);
 	}
 
 }

@@ -79,12 +79,11 @@ public class BoardController {
 	@ResponseBody
 	public String delete(@RequestParam(value = "empIdList[]") List<String> empIdList, BoardVO boardVO) throws Exception {
 		logger.info("delete");
-	    for (String employeeId : empIdList) {
-	    	System.out.println(employeeId);
-	    //	service.delete(Integer.parseInt(employeeIds));
-	    }
 	    boardVO.setEmployeeIdArray(empIdList);
 	    System.out.println(empIdList);
+	    service.delete(empIdList);
+	    
+	    
 	    return "board/list"; 
 	}
 
