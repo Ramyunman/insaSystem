@@ -87,9 +87,11 @@
 	<!-- 직원 정보 선택삭제 -->
 	<delete id="delete" parameterType="java.util.List">
 		DELETE  FROM  employees
-		WHERE   employee_id  IN
-	  	<foreach collection="employeeIdArray" item="id" separator="," open="(" close=")">
-			#{id}
-		</foreach> 
+		<where>
+			employee_id IN
+			<foreach collection="list" item="id" separator="," open="(" close=")">
+				#{id}
+			</foreach>
+		</where>
 	</delete>
 </mapper>
