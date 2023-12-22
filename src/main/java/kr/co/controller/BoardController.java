@@ -77,13 +77,10 @@ public class BoardController {
 	// 게시판 삭제
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	@ResponseBody
-	public String delete(@RequestParam(value = "empIdList[]") List<String> empIdList, BoardVO boardVO) throws Exception {
+	public String delete(@RequestParam(value = "empIdList[]") List<String> empIdList) throws Exception {
 		logger.info("delete");
-	    boardVO.setEmployeeIdArray(empIdList);
 	    System.out.println(empIdList);
 	    service.delete(empIdList);
-	    
-	    
 	    return "board/list"; 
 	}
 
