@@ -20,7 +20,7 @@
 		    		<%@include file="nav.jsp" %>
 		    	</div>
 				
-				<table class="table table-striped">
+				<table class="table table-striped" id="employeeList">
 				  <thead class=thead-dark>
 				    <tr>
 				      <th scope="col">선택</th>
