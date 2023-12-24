@@ -1,6 +1,7 @@
 package kr.co.controller;
 
 import java.util.Arrays;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -81,7 +82,7 @@ public class BoardController {
 		logger.info("delete");
 	    System.out.println(empIdList);
 	    service.delete(empIdList);
-	    return "board/list"; 
+	    return "redirect:/board/list"; 
 	}
 
 
