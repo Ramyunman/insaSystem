@@ -54,7 +54,7 @@
 	</resultMap>
 	
 	<!-- 직원 목록 -->
-	<select id="listPage" resultType="kr.co.vo.BoardVO" resultMap="boardVoResultMap" parameterType="kr.co.vo.Criteria">
+	<select id="list" resultType="kr.co.vo.BoardVO" resultMap="boardVoResultMap" parameterType="kr.co.vo.Criteria">
 		SELECT      employee_id,
             		name,
             		email,
@@ -75,7 +75,7 @@
         		ON e.department_id = d.department_id
      		  ) emp
 		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
-		ORDER BY employee_id DESC;
+		ORDER BY employee_id DESC
 	</select>
 	
 	<!-- 직원 총 인원수 -->

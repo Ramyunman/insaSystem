@@ -102,7 +102,7 @@
 							<div class="form-group">
 								<label for="email">Email</label>
 							  	<input type="text" class="form-control" id="email" name="email" value="${read.email }" readonly="readonly">
-							</div>		  
+							</div>	  
 							<button type="submit" class="btn btn-primary update_btn">수정</button>
 							<button type="submit" class="btn btn-secondary list_btn">취소</button>
 				    </div>
