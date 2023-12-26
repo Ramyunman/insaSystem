@@ -20,6 +20,30 @@
 		    		<%@include file="nav.jsp" %>
 		    	</div>
 		    	
+		    	<div>
+			    	<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+					  <label class="form-check-label" for="inlineRadio1">전체</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+					  <label class="form-check-label" for="inlineRadio2">근무자</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+					  <label class="form-check-label" for="inlineRadio3">퇴사자</label>
+					</div>
+					
+					<form class="form-inline">
+					  <div class="form-group mx-sm-3 mb-2">
+					    <label for="inputPassword2" class="sr-only">Password</label>
+					    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+					  </div>
+					  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+					</form>
+					
+		    	</div>
+		    	
 				<table class="table table-striped" id="employeeList">
 				  <thead class=thead-dark>
 				    <tr>
@@ -53,7 +77,7 @@
 				
 				<!-- 페이지네이션 -->
 				<nav aria-label="Page navigation example">
-				  <ul class="pagination">
+				  <ul class="pagination justify-content-center">
 				  	<c:if test="${pageMaker.prev}">
 				    	<li class="page-item"><a class="page-link" href="list${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
 				    </c:if>
