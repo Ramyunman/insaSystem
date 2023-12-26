@@ -53,12 +53,38 @@
 		<result property="department_name" column="department_name"/>
 	</resultMap>
 	
-	<!-- 게시판 목록 -->
-	<select id="list" resultType="kr.co.vo.BoardVO" resultMap="boardVoResultMap">
-		SELECT e.*, d.department_name 
-		FROM employees e
-		LEFT JOIN departments d on e.department_id = d.department_id
-		ORDER BY employee_id DESC
+	<!-- 직원 목록 -->
+	<select id="listPage" resultType="kr.co.vo.BoardVO" resultMap="boardVoResultMap" parameterType="kr.co.vo.Criteria">
+		SELECT      employee_id,
+            		name,
+            		email,
+            		phone_number,
+            		hire_date,
+            		leave_date,
+            		department_id,
+            		address,
+            		reg_no,
+            		bank_id,
+            		bank_account,
+            		department_name
+		FROM (
+        		SELECT e.*, d.department_name,
+        		ROW_NUMBER() OVER(ORDER BY e.employee_id DESC) as RNUM
+        		FROM employees e
+        		LEFT JOIN departments d 
+        		ON e.department_id = d.department_id
+     		  ) emp
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		ORDER BY employee_id DESC;
+	</select>
+	
+	<!-- 직원 총 인원수 -->
+	<select id="listCount" resultType="int">
+	<![CDATA[
+			SELECT COUNT(employee_id)
+			FROM   employees
+			WHERE  employee_id > 0
+	]]>
 	</select>
 	
 	<!-- 직원 정보 조회 -->

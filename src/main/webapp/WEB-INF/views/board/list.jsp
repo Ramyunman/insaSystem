@@ -51,6 +51,17 @@
 				  </tbody>
 				</table>
 				
+				<!-- 페이지네이션 -->
+				<nav aria-label="Page navigation example">
+				  <ul class="pagination">
+				    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+				    <li class="page-item"><a class="page-link" href="#">1</a></li>
+				    <li class="page-item"><a class="page-link" href="#">2</a></li>
+				    <li class="page-item"><a class="page-link" href="#">3</a></li>
+				    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+				  </ul>
+				</nav>
+				
 				<button type="submit" class="btn btn-primary create_btn">추가</button>
 				<button type="button" class="btn btn-secondary delete_btn">삭제</button>
 		    </div>	<!-- 전체 화면 그리드 중앙 -->

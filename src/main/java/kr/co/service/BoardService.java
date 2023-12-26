@@ -3,6 +3,7 @@ package kr.co.service;
 import java.util.List;
 
 import kr.co.vo.BoardVO;
+import kr.co.vo.Criteria;
 
 public interface BoardService {
 	
@@ -10,7 +11,10 @@ public interface BoardService {
 	public void write(BoardVO boardVO) throws Exception;
 	
 	// 직원 목록 조회
-	public List<BoardVO> list() throws Exception;
+	public List<BoardVO> list(Criteria cri) throws Exception;
+	
+	// 직원 총 인원수
+	public int listCount() throws Exception;
 	
 	// 직원 정보 조회
 	public BoardVO read(int employee_id) throws Exception;
