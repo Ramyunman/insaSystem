@@ -9,6 +9,36 @@
 	<meta charset="UTF-8">
 		<title>직원 게시판 목록</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+	<style>
+	.container {
+	  display: flex;
+	  justify-content: center;	/* 가로 중앙 정렬 */
+	  align-items: center;		/* 세로 중앙 정렬 */
+	  margin-bottom: 25px;
+	  margin-top: 20px;
+	}
+	
+	.radio-buttons {
+	  display: flex;
+	}
+	
+	.radio-buttons input[type="radio"],
+	.radio-buttons label {
+	  margin-right: 10px;
+	}
+	
+	input[type="text"] {
+	  margin-right: 10px;
+	}
+	
+	button {
+	  padding: 8px 12px;
+	  background-color: #007bff;
+	  color: white;
+	  border: none;
+	  cursor: pointer;
+	}
+	</style>
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -20,30 +50,30 @@
 		    		<%@include file="nav.jsp" %>
 		    	</div>
 		    	
-		    	<div>
-			    	<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-					  <label class="form-check-label" for="inlineRadio1">전체</label>
-					</div>
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-					  <label class="form-check-label" for="inlineRadio2">근무자</label>
-					</div>
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-					  <label class="form-check-label" for="inlineRadio3">퇴사자</label>
+			    <div class="container">
+					<!-- 라디오 버튼 3개 -->
+					<div class="radio-buttons">
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+	  						<label class="form-check-label" for="inlineRadio1">전체</label>
+						</div>
+						<div class="form-check form-check-inline">
+						    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+	  						<label class="form-check-label" for="inlineRadio1">근무자</label>
+						</div>
+						<div class="form-check form-check-inline">
+						    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+	  						<label class="form-check-label" for="inlineRadio1">퇴사자</label>
+	  					</div>
 					</div>
 					
-					<form class="form-inline">
-					  <div class="form-group mx-sm-3 mb-2">
-					    <label for="inputPassword2" class="sr-only">Password</label>
-					    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-					  </div>
-					  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
-					</form>
+					<!-- 텍스트 입력 -->
+					<input type="text" placeholder="성명" />
 					
-		    	</div>
-		    	
+					<!-- 검색 버튼 -->
+					<button type="button" class="btn btn-primary">검색</button>
+				</div>
+
 				<table class="table table-striped" id="employeeList">
 				  <thead class=thead-dark>
 				    <tr>
