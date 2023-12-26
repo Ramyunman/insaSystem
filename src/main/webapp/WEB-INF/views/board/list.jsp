@@ -63,6 +63,7 @@
 	        location.href = "/board/writeView"; // 페이지 경로 확인 후 수정
 	    });
 	    
+	    // 삭제
 	    $(".delete_btn").on("click", function() {		
 	        var idList = [];
 	        
