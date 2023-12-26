@@ -10,12 +10,33 @@
 	</head>
 	<script type="text/javascript">
 		$(document).ready(function() {
+			// 저장
+			var formObj = $("form[name='writeForm']");
+			$(".write_btn").on("click", function() {
+				if(fn_valiChk()) {
+					return false;
+				}
+				formObj.attr("action", "/board/write");
+				formObj.attr("method", "post");
+				formObj.submit();
+			});
 			
+			// 취소
 			$(".cancel_btn").on("click", function() {
 				event.preventDefault();
 				location.href = "/board/list";
-			})
+			});
 		})
+		function fn_valiChk() {
+			var regForm = $("form[name='writeForm'] .chk").length;
+			for(var i = 0; i<regForm; i++) {
+				console.log($(".chk").eq(i).val()); // 검증 중인 값을 로그에 기록
+				if($(".chk").eq(i).val() == "" || $(".chk").eq(i).val() == null) {
+					alert($(".chk").eq(i).attr("title"));
+					return true;
+				}	
+			}
+		}
 	</script>
 	<body>
 		<div class="container-fluid">
@@ -30,29 +51,29 @@
 				<div class="container-fluid">	<!-- 등록 폼 그리드-->
 				  <div class="row">
 				    <div class="col-8">
-					    <form role="form" method="post" action="/board/write">
+					    <form role="form" name="writeForm" method="post" action="/board/write">
 							<div class="form-row">
 								<div class="form-group col-md-6">
 							      <label for="name">성명</label>
-							      <input type="text" class="form-control" id="name" name="name" placeholder="성명">
+							      <input type="text" class="form-control chk" id="name" name="name" placeholder="성명" title="성명을 입력하세요.">
 							    </div>
 							    <div class="form-group col-md-6">
 							      <label for="reg_no">주민번호</label>
-							      <input type="text" class="form-control" id="reg_no" name="reg_no" placeholder="주민번호">
+							      <input type="text" class="form-control chk" id="reg_no" name="reg_no" placeholder="주민번호" title="주민번호를 입력하세요.">
 							    </div>
 							</div>
 							<div class="form-group">
 								<label for="address">주소</label>
-							    <textarea class="form-control" id="address" name="address" rows="3" placeholder="주소"></textarea>
+							    <textarea class="form-control chk" id="address" name="address" rows="3" placeholder="주소" title="주소를 입력하세요."></textarea>
 							</div>
 							<div class="form-row">
 							  	<div class="form-group col-md-4">
 							      <label for="hire_date">입사일</label>
-							      <input type="date" class="form-control" id="hire_date" name="hire_date" placeholder="입사일">
+							      <input type="date" class="form-control chk" id="hire_date" name="hire_date" placeholder="입사일" title="입사일을 입력하세요.">
 							    </div>
 							    <div class="form-group col-md-4">
 							      <label for="department_id">부서명</label>
-							      <select id="inputDepartmentName" class="form-control" id="department_id" name="department_id">
+							      <select id="inputDepartmentName" class="form-control chk" id="department_id" name="department_id" title="부서를 선택하세요.">
 							        <option value="10">관리부</option>
 			        				<option value="20">영업부</option>
 			        				<option value="30">구매부</option>
@@ -69,7 +90,7 @@
 							<div class="form-row">
 							    <div class="form-group col-md-4">
 							      <label for="bank_id">급여은행</label>
-							      <select id="inputBankName" class="form-control" id="bank_id" name="bank_id">
+							      <select id="inputBankName" class="form-control chk" id="bank_id" name="bank_id" title="급여은행을 선택하세요.">
 							        <option value="10">국민은행</option>
 			        				<option value="11">기업은행</option>
 			        				<option value="12">우리은행</option>
@@ -78,18 +99,18 @@
 							    </div>
 							    <div class="form-group col-md-8">
 							      <label for="bank_account">급여계좌</label>
-							      <input type="text" class="form-control" id="bank_account" name="bank_account" placeholder="급여계좌">
+							      <input type="text" class="form-control chk" id="bank_account" name="bank_account" placeholder="급여계좌" title="급여계좌를 입력하세요.">
 							    </div>
 							</div>
 							<div class="form-group">
 							    <label for="phone_number">전화번호</label>
-							    <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="전화번호">
+							    <input type="text" class="form-control chk" id="phone_number" name="phone_number" placeholder="전화번호" title="전화번호를 입력하세요.">
 							</div>
 							<div class="form-group">
 								<label for="email">Email</label>
-							  	<input type="text" class="form-control" id="email" name="email" placeholder="Email">
+							  	<input type="text" class="form-control chk" id="email" name="email" placeholder="Email" title="Email을 입력하세요.">
 							</div>		  
-								<button type="submit" class="btn btn-primary">저장</button>
+								<button type="submit" class="btn btn-primary write_btn">저장</button>
 								<button type="submit" class="btn btn-secondary cancel_btn">취소</button>
 						</form>
 				    </div>
