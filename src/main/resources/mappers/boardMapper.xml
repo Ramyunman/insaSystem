@@ -54,7 +54,7 @@
 	</resultMap>
 	
 	<!-- 직원 목록 -->
-	<select id="list" resultType="kr.co.vo.BoardVO" resultMap="boardVoResultMap" parameterType="kr.co.vo.Criteria">
+	<select id="list" resultType="kr.co.vo.BoardVO" resultMap="boardVoResultMap" parameterType="kr.co.vo.SearchCriteria">
 		SELECT      employee_id,
             		name,
             		email,
@@ -73,19 +73,30 @@
         		FROM employees e
         		LEFT JOIN departments d 
         		ON e.department_id = d.department_id
-     		  ) emp
+        		WHERE 1=1
+        			<include refid="search"></include>
+     		 ) emp
 		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
 		ORDER BY employee_id DESC
 	</select>
 	
 	<!-- 직원 총 인원수 -->
-	<select id="listCount" resultType="int">
-	<![CDATA[
-			SELECT COUNT(employee_id)
-			FROM   employees
-			WHERE  employee_id > 0
-	]]>
+	<select id="listCount" parameterType="kr.co.vo.SearchCriteria" resultType="int">
+		SELECT COUNT(employee_id)
+		FROM   employees
+		WHERE  1=1
+			<include refid="search"></include>
+		AND employee_id > 0
 	</select>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 'h'.toString()">AND hire_date LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'l'.toString()">AND leave_date LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'hl'.toString()">AND (hire_date LIKE '%' || #{keyword} || '%') 
+			OR (leave_date LIKE '%' || #{keyword} || '%')</if>
+		</if>
+	</sql>
 	
 	<!-- 직원 정보 조회 -->
 	<select id="read" parameterType="int" resultType="kr.co.vo.BoardVO" resultMap="boardVoResultMap">
