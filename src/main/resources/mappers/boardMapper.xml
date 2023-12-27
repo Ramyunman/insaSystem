@@ -91,10 +91,9 @@
 	
 	<sql id="search">
 		<if test="searchType != null">
-			<if test="searchType == 'h'.toString()">AND hire_date LIKE '%' || #{keyword} || '%'</if>
-			<if test="searchType == 'l'.toString()">AND leave_date LIKE '%' || #{keyword} || '%'</if>
-			<if test="searchType == 'hl'.toString()">AND (hire_date LIKE '%' || #{keyword} || '%') 
-			OR (leave_date LIKE '%' || #{keyword} || '%')</if>
+			<if test="searchType == 'h'.toString()">AND hire_date IS NOT NULL AND name LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'l'.toString()">AND leave_date IS NOT NULL AND name LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'hl'.toString()">AND name LIKE '%' || #{keyword} || '%'</if>
 		</if>
 	</sql>
 	
