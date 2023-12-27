@@ -60,11 +60,11 @@
 							<div class="form-row">
 								<div class="form-group col-md-6">
 							      <label for="name">성명</label>
-							      <input type="text" class="form-control chk" id="name" name="name" value="${update.name }" title="성명을 입력하세요.">
+							      <input type="text" class="form-control chk" id="name" name="name" value="${update.name }" title="성명을 입력하세요." onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);">
 							    </div>
 							    <div class="form-group col-md-6">
 							      <label for="reg_no">주민번호</label>
-							      <input type="text" class="form-control chk" id="reg_no" name="reg_no" value="${update.reg_no }" title="주민번호를 입력하세요.">
+							      <input type="text" class="form-control chk" id="reg_no" name="reg_no" value="${update.reg_no }" title="주민번호를 입력하세요." onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);">
 							    </div>
 							</div>
 							<div class="form-group">
@@ -104,16 +104,16 @@
 							    </div>
 							    <div class="form-group col-md-8">
 							      <label for="bank_account">급여계좌</label>
-							      <input type="text" class="form-control chk" id="bank_account" name="bank_account" value="${update.bank_account }" title="급여계좌를 입력하세요.">
+							      <input type="text" class="form-control chk" id="bank_account" name="bank_account" value="${update.bank_account }" title="급여계좌를 입력하세요." onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);">
 							    </div>
 							</div>
 							<div class="form-group">
 							    <label for="phone_number">전화번호</label>
-							    <input type="text" class="form-control chk" id="phone_number" name="phone_number" value="${update.phone_number }" title="전화번호를 입력하세요.">
+							    <input type="text" class="form-control chk" id="phone_number" name="phone_number" value="${update.phone_number }" title="전화번호를 입력하세요." onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);">
 							</div>
 							<div class="form-group">
 								<label for="email">Email</label>
-							  	<input type="text" class="form-control chk" id="email" name="email" value="${update.email }" title="Email을 입력하세요.">
+							  	<input type="text" class="form-control chk" id="email" name="email" value="${update.email }" title="Email을 입력하세요." onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);">
 							</div>		  
 								<button type="submit" class="btn btn-primary update_btn">수정하기</button>
 								<button type="submit" class="btn btn-secondary cancel_btn">취소</button>
@@ -126,7 +126,17 @@
 		    <div class="col testCss3"></div>
 		  </div>
 		</div>
-		
+	<script>
+	function noSpaceForm(obj) { // 공백사용못하게
+	    var str_space = /\s/;  // 공백체크
+	    if(str_space.exec(obj.value)) { //공백 체크
+	        //alert("해당 항목에는 공백을 사용할수 없습니다.\n\n공백은 자동적으로 제거 됩니다.");
+	        obj.focus();
+	        obj.value = obj.value.replace(/\s| /gi,''); // 공백제거
+	        return false;
+	    }
+	}
+	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 	</body>
 </html>

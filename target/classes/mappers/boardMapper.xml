@@ -111,7 +111,7 @@
 		   		email = #{email},
 		   		phone_number = #{phone_number},
 		   		hire_date = #{hire_date},
-		   		leave_date = #{leave_date},
+		   		leave_date = #{leave_date, jdbcType=VARCHAR},
 		   		department_id = #{department_id},
 		   		address = #{address},
 		   		reg_no = #{reg_no},
