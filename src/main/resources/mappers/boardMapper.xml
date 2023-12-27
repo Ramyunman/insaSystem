@@ -24,7 +24,7 @@
 				#{email},
 				#{phone_number},
 				#{hire_date},
-				#{leave_date},
+				#{leave_date, jdbcType=VARCHAR},
 				#{department_id},
 				#{address},
 				#{reg_no},

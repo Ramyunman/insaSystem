@@ -2,6 +2,8 @@ package kr.co.vo;
 
 import java.sql.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class BoardVO {
 
 	private int employee_id;
@@ -48,9 +50,11 @@ public class BoardVO {
 	public void setHire_date(Date hire_date) {
 		this.hire_date = hire_date;
 	}
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	public Date getLeave_date() {
 		return leave_date;
 	}
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	public void setLeave_date(Date leave_date) {
 		this.leave_date = leave_date;
 	}
