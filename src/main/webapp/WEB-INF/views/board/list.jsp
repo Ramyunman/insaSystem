@@ -114,8 +114,8 @@
 				      <td><c:out value="${emp.reg_no }"/></td>
 				      <td><c:out value="${emp.departments.department_name }"/></td>
 				      <td>과장</td>
-				      <td><fmt:formatDate value="${emp.hire_date }" pattern="yyyy-MM-dd"/></td>
-				      <td><fmt:formatDate value="${emp.leave_date }" pattern="yyyy-MM-dd"/></td>
+				      <td><c:out value="${emp.hire_date }"/></td>
+				      <td><c:out value="${emp.leave_date }"/></td>
 				      <td><c:out value="${emp.email }"/></td>
 				    </tr>
 				    </c:forEach>
