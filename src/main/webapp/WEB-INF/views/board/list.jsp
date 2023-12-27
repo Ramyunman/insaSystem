@@ -50,31 +50,45 @@
 		    		<%@include file="nav.jsp" %>
 		    	</div>
 		    	
-			    <div class="container">
+			    <div class="container"> <!-- 라디오 버튼 3개 + 검색창 -->
 					<!-- 라디오 버튼 3개 -->
-					<div class="radio-buttons">
+					<div class="radio-buttons search">
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+							<input class="form-check-input" type="radio" name="searchType" id="inlineRadio1" value="hl" ${scri.searchType == 'hl' ? 'checked' : ''}>
 	  						<label class="form-check-label" for="inlineRadio1">전체</label>
 						</div>
 						<div class="form-check form-check-inline">
-						    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+						    <input class="form-check-input" type="radio" name="searchType" id="inlineRadio2" value="h" ${scri.searchType == 'h' ? 'checked' : ''}>
 	  						<label class="form-check-label" for="inlineRadio1">근무자</label>
 						</div>
 						<div class="form-check form-check-inline">
-						    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+						    <input class="form-check-input" type="radio" name="searchType" id="inlineRadio3" value="l" ${scri.searchType == 'l' ? 'checked' : ''}>
 	  						<label class="form-check-label" for="inlineRadio1">퇴사자</label>
 	  					</div>
 					</div>
 					
 					<!-- 텍스트 입력 -->
-					<input type="text" placeholder="성명" />
+					<input type="text" name="keyword" id="keywordInput" placeholder="성명" value="${scri.keyword}"/>
 					
 					<!-- 검색 버튼 -->
-					<button type="button" class="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-					  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-					</svg></button>
-					
+					<button type="button" class="btn btn-light" id="searchBtn">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+					  	<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+						</svg>
+					</button>
+					<script>
+						$(function() {
+							$('#searchBtn').click(function() {
+							// URL 조립
+							var url = "list" + '${pageMaker.makeQuery(1)}' + 
+									  "&searchType=" + $("input[name='searchType']:checked").val() +	// 라디오 버튼 선택값 가져오기
+									  "&keyword=" + encodeURIComponent($('#keywordInput').val());
+							
+							// 검색 결과 페이지로 이동
+							window.location.href = url;
+							});
+						});
+					</script>
 				</div>
 
 				<table class="table table-striped" id="employeeList">
@@ -112,15 +126,15 @@
 				<nav aria-label="Page navigation example">
 				  <ul class="pagination justify-content-center">
 				  	<c:if test="${pageMaker.prev}">
-				    	<li class="page-item"><a class="page-link" href="list${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
+				    	<li class="page-item"><a class="page-link" href="list${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li>
 				    </c:if>
 				    
 				    <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-				    	<li class="page-item"><a class="page-link" href="list${pageMaker.makeQuery(idx)}">${idx}</a></li>
+				    	<li class="page-item"><a class="page-link" href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
 				    </c:forEach>
 				    
 				    <c:if test="${pageMaker.next && pageMaker.endPage > 0}">	
-				    	<li class="page-item"><a class="page-link" href="list${pageMaker.makeQuery(pageMaker.endPage  + 1)}">다음</a></li>
+				    	<li class="page-item"><a class="page-link" href="list${pageMaker.makeSearch(pageMaker.endPage  + 1)}">다음</a></li>
 				    </c:if>
 				  </ul>
 				</nav>
