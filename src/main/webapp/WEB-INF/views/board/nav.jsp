@@ -20,7 +20,7 @@
 		<hr/>
 			<div class="menu">
 				<a href="/board/list">사원목록</a>
-				<a href="/board/">자유게시판</a>				
+				<a href="/board/">공지사항</a>				
 			</div>
 		<hr/>
 	</div>
