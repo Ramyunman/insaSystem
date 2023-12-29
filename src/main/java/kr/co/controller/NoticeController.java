@@ -21,6 +21,18 @@ public class NoticeController {
 	@Inject
 	NoticeService service;
 	
+	// 공지사항 글 작성화면
+	@RequestMapping(value = "/n_writeView", method = RequestMethod.GET)
+	public void writeView() throws Exception {
+		logger.info("n_writeView");
+	}
+	
+	// 공지사항 글 작성
+	@RequestMapping(value = "/n_writeView", method = RequestMethod.GET)
+	public void writeView() throws Exception {
+		logger.info("n_writeView");
+	}
+	
 	// 공지사항 목록 조회
 	@RequestMapping(value = "/n_list", method = RequestMethod.GET)
 	public String list(Model model) throws Exception {

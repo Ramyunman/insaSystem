@@ -5,8 +5,28 @@
 <mapper namespace="noticeMapper">
 
 <!-- 계층형 게시판 글 작성 -->
-<insert id="">
-
+<insert id="insert">
+	INSERT INTO notice (
+	         n_idx,
+	         n_title,
+	         n_content,
+	         n_views,
+	         n_writer,
+	         n_date,
+	         n_group,
+	         n_order,
+	         n_depth
+  		) VALUES (
+	        notice_seq.nextval,
+	        #{n_title},
+	        #{n_content},
+	        #{n_views},
+	        #{n_writer},
+	        sysdate,
+	        #{n_group},
+	        1,
+	        0
+   ); 
 </insert>
 
 </mapper>
