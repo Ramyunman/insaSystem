@@ -12,6 +12,8 @@
 <style>
 	.noticeTitle {
 		text-align: center;
+		margin-top: 25px;
+		margin-bottom: 25px;
 	}
 </style>
 </head>
@@ -19,8 +21,43 @@
 	<div class="noticeTitle">
 		<h1>계층형 게시판</h1>
 	</div>
-
-
+	
+	<div>
+		<%@include file="nav2.jsp" %>
+	</div>
+	
+	<div class="container-fluid">
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">First</th>
+		      <th scope="col">Last</th>
+		      <th scope="col">Handle</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th scope="row">1</th>
+		      <td>Mark</td>
+		      <td>Otto</td>
+		      <td>@mdo</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">2</th>
+		      <td>Jacob</td>
+		      <td>Thornton</td>
+		      <td>@fat</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">3</th>
+		      <td>Larry</td>
+		      <td>the Bird</td>
+		      <td>@twitter</td>
+		    </tr>
+		  </tbody>
+		</table>
+	</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>
 </html>
