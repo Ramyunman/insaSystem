@@ -1,5 +1,23 @@
 package kr.co.dao;
 
-public class NoticeDAOImpl {
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+import kr.co.vo.Notice;
+
+@Repository
+public class NoticeDAOImpl implements NoticeDAO {
+
+	@Inject
+	private SqlSession sqlSession;
+	
+	// 공지사항 글 작성
+	@Override
+	public void write(Notice notice) throws Exception {
+		sqlSession.insert("noticeMapper.insert", notice);
+		
+	}
 
 }

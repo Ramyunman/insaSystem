@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.service.NoticeService;
 
-
-
 @Controller
 @RequestMapping("/notice/*")
 public class NoticeController {
@@ -20,8 +18,8 @@ public class NoticeController {
 	private static final Logger logger = 
 			LoggerFactory.getLogger(NoticeController.class);
 
-//	@Inject
-//	NoticeService service;
+	@Inject
+	NoticeService service;
 	
 	// 공지사항 목록 조회
 	@RequestMapping(value = "/n_list", method = RequestMethod.GET)
