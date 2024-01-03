@@ -7,7 +7,7 @@
 <head>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공지사항 목록</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 <style>
 	.noticeTitle {
@@ -25,11 +25,7 @@
 		<div class="row">
 		    <div class="col testCss1"></div>				
 		    <div class="col-9 testCss2">	<!-- 전체 화면 그리드 중앙 -->
-		    	
-		    	<div class="noticeTitle">
-					<h1>계층형 게시판</h1>
-				</div>
-	
+		    		
 				<div>
 					<%@include file="nav2.jsp" %>
 				</div>
