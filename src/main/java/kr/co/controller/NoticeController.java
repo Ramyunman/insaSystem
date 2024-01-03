@@ -28,8 +28,8 @@ public class NoticeController {
 	}
 	
 	// 공지사항 글 작성
-	@RequestMapping(value = "/n_writeView", method = RequestMethod.GET)
-	public void writeView() throws Exception {
+	@RequestMapping(value = "/write", method = RequestMethod.GET)
+	public void write() throws Exception {
 		logger.info("n_writeView");
 	}
 	
