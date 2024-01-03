@@ -1,5 +1,7 @@
 package kr.co.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -17,6 +19,12 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public void write(Notice notice) throws Exception {
 		dao.write(notice);
+	}
+
+	// 공지사항 목록 조회
+	@Override
+	public List<Notice> list() throws Exception {
+		return dao.list();
 	}
 
 

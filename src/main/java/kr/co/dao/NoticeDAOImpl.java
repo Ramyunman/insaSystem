@@ -1,5 +1,7 @@
 package kr.co.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,7 +19,12 @@ public class NoticeDAOImpl implements NoticeDAO {
 	@Override
 	public void write(Notice notice) throws Exception {
 		sqlSession.insert("noticeMapper.insert", notice);
-		
+	}
+
+	// 공지사항 목록 조회
+	@Override
+	public List<Notice> list() throws Exception {
+		return sqlSession.selectList("noticeMapper.list");
 	}
 
 }

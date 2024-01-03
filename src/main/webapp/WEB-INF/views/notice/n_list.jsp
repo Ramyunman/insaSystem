@@ -36,44 +36,47 @@
 	
 				<div class="card"">
 					<div class="card-body">
-				    This is some text within a card body.
+				    총 게시글 수 :
 				  	</div>
 				</div>
 	
 				<table class="table">
 				  <thead>
 				    <tr>
-				      <th scope="col">#</th>
-				      <th scope="col">First</th>
-				      <th scope="col">Last</th>
-				      <th scope="col">Handle</th>
+				      <th scope="col">No</th>
+				      <th scope="col">제목</th>
+				      <th scope="col">내용</th>
+				      <th scope="col">작성자</th>
+				      <th scope="col">조회수</th>
+				      <th scope="col">작성일자</th>
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr>
-				      <th scope="row">1</th>
-				      <td>Mark</td>
-				      <td>Otto</td>
-				      <td>@mdo</td>
+				    <c:forEach items="${nList}" var="notice">
+				  	<tr>
+				      <td><c:out value="${notice.nIdx }"/></td>
+				      <td><c:out value="${notice.nTitle }"/></td>
+				      <td><c:out value="${notice.nContent }"/></td>
+				      <td><c:out value="${notice.nWriter }"/></td>
+				      <td><c:out value="${notice.nViews}"/></td>
+				      <td><c:out value="${notice.nDate}"/></td>
 				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>Jacob</td>
-				      <td>Thornton</td>
-				      <td>@fat</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>Larry</td>
-				      <td>the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
+				  	</c:forEach>
 				  </tbody>
-				</table>	
+				</table>
+				<button type="button" class="btn btn-primary create_btn">추가</button>
 		    </div>	<!-- 전체 화면 그리드 중앙 -->
 		    <div class="col testCss3"></div>
 		</div>
 	</div>
+<script>
+$(document).ready(function() {
+    // 추가
+    $(".create_btn").on("click", function() {
+        location.href = "/notice/n_writeView"; // 페이지 경로 확인 후 수정
+    });
+})
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>
 </html>

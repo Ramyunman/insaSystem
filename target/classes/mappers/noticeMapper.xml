@@ -4,29 +4,58 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="noticeMapper">
 
-<!-- 계층형 게시판 글 작성 -->
-<insert id="insert">
-	INSERT INTO notice (
-	         n_idx,
-	         n_title,
-	         n_content,
-	         n_views,
-	         n_writer,
-	         n_date,
-	         n_group,
-	         n_order,
-	         n_depth
-  		) VALUES (
-	        notice_seq.nextval,
-	        #{n_title},
-	        #{n_content},
-	        #{n_views},
-	        #{n_writer},
-	        sysdate,
-	        #{n_group},
-	        1,
-	        0
-   ); 
-</insert>
-
+	<!-- Notice 글 작성 -->
+	<insert id="insert">
+	    INSERT INTO notice  (
+		     n_idx,
+		     n_title,
+		     n_content,
+		     n_views,
+		     n_writer,
+		     n_date,
+		     n_group,
+		     n_order,
+		     n_depth
+	  	) VALUES (
+		     notice_seq.nextval,
+		     #{nTitle},
+		     #{nContent},
+		     #{nViews},
+		     #{nWriter},
+		     sysdate,
+		     #{nGroup},
+		     1,
+		     0
+	   	)
+		<selectKey resultType="int" keyProperty="n_idx" order="AFTER">
+		    SELECT notice_seq.currval FROM notice
+		</selectKey>
+	</insert>
+    
+    <resultMap id="noticeMap" type="kr.co.vo.Notice">
+	    <id property="nIdx" column="n_idx"/>
+	    <result property="nTitle" column="n_title"/>
+	    <result property="nContent" column="n_content"/>
+	    <result property="nViews" column="n_views"/>
+	    <result property="nWriter" column="n_writer"/>
+	    <result property="nDate" column="n_date"/>
+	    <result property="nGroup" column="n_group"/>
+	    <result property="nOrder" column="n_order"/>
+	    <result property="nDepth" column="n_depth"/>	   
+    </resultMap>
+    
+    <!-- 공지사항 목록 보기 -->
+    <select id="list" resultType="kr.co.vo.Notice">
+    	SELECT    n_idx,
+    			  n_title,
+    			  n_content,
+    			  n_views,
+    			  n_writer,
+    			  n_date,
+    			  n_group,
+    			  n_order,
+    			  n_depth
+    	FROM	  notice  
+    	ORDER BY  n_idx DESC
+    </select>
 </mapper>
