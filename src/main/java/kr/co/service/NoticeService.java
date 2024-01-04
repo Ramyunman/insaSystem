@@ -11,4 +11,7 @@ public interface NoticeService {
 
 	// 공지사항 목록 조회
 	public List<Notice> list() throws Exception;
+	
+	// nIdx를 nGroup에 적용시킴
+	public void updateNGroup(Notice notice) throws Exception;
 }

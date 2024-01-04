@@ -22,7 +22,7 @@
 		     #{nContent},
 		     #{nViews},
 		     #{nWriter},
-		     sysdate,
+		     SYSDATE,
 		     #{nGroup},
 		     1,
 		     0
@@ -31,6 +31,15 @@
 		    SELECT notice_seq.currval FROM notice
 		</selectKey>
 	</insert>
+	
+	<!-- nGroup을 nIdx를 이용해 업데이트 하는 메소드 -->
+	<update id="updateNGroup" parameterType="kr.co.vo.Notice">
+	<![CDATA[
+		UPDATE        notice
+		SET			  n_group = notice_seq.currval
+		WHERE		  n_idx = notice_seq.currval
+	]]>
+	</update>
     
     <resultMap id="noticeMap" type="kr.co.vo.Notice">
 	    <id property="nIdx" column="n_idx"/>

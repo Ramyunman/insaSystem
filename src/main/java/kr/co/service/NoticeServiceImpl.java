@@ -19,6 +19,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public void write(Notice notice) throws Exception {
 		dao.write(notice);
+		dao.updateNGroup(notice);
 	}
 
 	// 공지사항 목록 조회
@@ -26,6 +27,13 @@ public class NoticeServiceImpl implements NoticeService {
 	public List<Notice> list() throws Exception {
 		return dao.list();
 	}
+
+	// nIdx를 nGroup에 적용시킴
+	@Override
+	public void updateNGroup(Notice notice) throws Exception {
+		dao.updateNGroup(notice);
+	}
+	
 
 
 

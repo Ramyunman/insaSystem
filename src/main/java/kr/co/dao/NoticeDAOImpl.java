@@ -27,4 +27,10 @@ public class NoticeDAOImpl implements NoticeDAO {
 		return sqlSession.selectList("noticeMapper.list");
 	}
 
+	// nIdx를 nGroup에 적용시킴
+	@Override
+	public void updateNGroup(Notice notice) throws Exception {
+		sqlSession.update("noticeMapper.updateNGroup", notice);
+	}
+
 }
