@@ -21,7 +21,6 @@
 			formObj.attr("method", "post");
 			formObj.submit();
 		});
-			
 		// 취소
 		$(".cancel_btn").on("click", function() {
 			event.preventDefault();
@@ -55,25 +54,17 @@
 					    <form role="form" name="nWriteForm" method="post" action="/notice/write">
 							<div class="form-row">
 								<div class="form-group col-md-6">
-							      <label for="name">성명</label>
-							      <input type="text" class="form-control chk" id="name" name="name" placeholder="성명" title="성명을 입력하세요." onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);">
+							      <label for="nTitle">제목</label>
+							      <input type="text" class="form-control chk" id="nTitle" name="nTitle" placeholder="제목" title="제목을 입력하세요." onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);">
 							    </div>
 							    <div class="form-group col-md-6">
-							      <label for="reg_no">주민번호</label>
-							      <input type="text" class="form-control chk" id="reg_no" name="reg_no" placeholder="주민번호" title="주민번호를 입력하세요." onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);">
+							      <label for="nWriter">작성자</label>
+							      <input type="text" class="form-control chk" id="nWriter" name="nWriter" placeholder="작성자" title="작성자를 입력하세요." onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);">
 							    </div>
 							</div>
 							<div class="form-group">
-								<label for="address">주소</label>
-							    <textarea class="form-control chk" id="address" name="address" rows="3" placeholder="주소" title="주소를 입력하세요."></textarea>
-							</div>
-							<div class="form-group">
-							    <label for="phone_number">전화번호</label>
-							    <input type="text" class="form-control chk" id="phone_number" name="phone_number" placeholder="전화번호" title="전화번호를 입력하세요." onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);">
-							</div>
-							<div class="form-group">
-								<label for="email">Email</label>
-							  	<input type="text" class="form-control chk" id="email" name="email" placeholder="Email" title="Email을 입력하세요." onkeyup="noSpaceForm(this);" onchange="noSpaceForm(this);">
+								<label for="nContent">내용</label>
+							    <textarea class="form-control chk" id="nContent" name="nContent" rows="3" placeholder="내용" title="내용을 입력하세요."></textarea>
 							</div>		  
 								<button type="submit" class="btn btn-primary write_btn">등록</button>
 								<button type="submit" class="btn btn-secondary cancel_btn">취소</button>
