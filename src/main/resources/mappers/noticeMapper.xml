@@ -5,7 +5,7 @@
 <mapper namespace="noticeMapper">
 
 	<!-- Notice 글 작성 -->
-	<insert id="insert">
+	<insert id="insert" parameterType="kr.co.vo.Notice">
 	    INSERT INTO notice  (
 		     n_idx,
 		     n_title,
@@ -27,7 +27,7 @@
 		     1,
 		     0
 	   	)
-		<selectKey resultType="int" keyProperty="n_idx" order="AFTER">
+		<selectKey keyColumn="n_idx" resultType="int" keyProperty="nIdx" order="AFTER">
 		    SELECT notice_seq.currval FROM notice
 		</selectKey>
 	</insert>
@@ -37,7 +37,7 @@
 	<![CDATA[
 		UPDATE        notice
 		SET			  n_group = notice_seq.currval
-		WHERE		  n_idx = notice_seq.currval
+		WHERE		  n_idx = #{nIdx}
 	]]>
 	</update>
     
